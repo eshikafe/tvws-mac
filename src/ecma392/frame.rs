@@ -1,4 +1,6 @@
-// Frame types
+// Copyright (c) TVWS Project
+
+
 // Frame control field format: b15 ... b0
 //  b0..b1: Protocol version 00
 //  b2: secure 0 .. 1
@@ -9,8 +11,8 @@
 //  b13..b15: Reserved 000
 
 // 7.1.2.1.2 Secure
+// 0b0000_0000_0000_0x00
 const FRAME_CRTL_SECURE: u16 = 0x0004;
-const FRAME_CRTL_NOT_SECURE: u16 = 0x0000;
 
 // 7.1.2.1.3 ACK Policy
 // 0b0000_0000_000x_x000
@@ -64,8 +66,10 @@ const FRAME_CTRL_SUBTYPE_RESERVED: u16 = 0x0F00 | FRAME_CTRL_TYPE_CMD; // Channe
 
 // 7.1.2.1.6 Retry
 // 0b000x_0000_0000_0000
-const FRAME_CTRL_RETRY_ON: u16 = 0x1000;
-const FRAME_CTRL_RETRY_OFF: u16 = 0x0000;
+const FRAME_CTRL_RETRY: u16 = 0x1000;
+
+
+// 7.1.2.4 Sequence Control
 
 // Section 7.1 MAC Frame
 pub struct MacFrame {
@@ -95,23 +99,4 @@ pub struct SecureFramePayload {
 pub enum PayloadType {
     Secure(SecureFramePayload),
     NotSecure(Vec<u8>),
-}
-
-impl MacFrameBody {
-    pub fn is_zero(&self) -> bool {
-        if self.payload_len() == 0 {
-            true
-        } else {
-            false
-        }
-    }
-
-    pub fn payload_len(&self) -> usize {
-        match *self.payload {
-            PayloadType::Secure(SecureFramePayload { secure_payload, .. }) => {
-                return secure_payload.len()
-            }
-            PayloadType::NotSecure(v) => return v.len(),
-        }
-    }
 }
