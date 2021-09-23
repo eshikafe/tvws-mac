@@ -43,7 +43,7 @@ const FRAME_CTRL_SUBTYPE_CTRL_RESRVED: u16 = 0x0000; // 6 - 13, 15
 const FRAME_CTRL_SUBTYPE_CTRL_APP_SPECIFIC: u16 = 0x0000;
 
 // Command: Table 26
-const FRAME_CTRL_SUBTYPE_CMD_CRP_RESERVATION_REQ: u16 = 0x0000;  // CRP reservation request
+const FRAME_CTRL_SUBTYPE_CMD_CRP_RESERVATION_REQ: u16 = 0x0000; // CRP reservation request
 
 // 7.1.2.1.6 Retry
 const FRAME_CTRL_RETRY_ON: u16 = 0x0800;
@@ -96,6 +96,4 @@ impl MacFrameBody {
             PayloadType::NotSecure(v) => return v.len(),
         }
     }
-
-    pub fn new() -> Self {}
 }
