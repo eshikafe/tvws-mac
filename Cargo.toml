@@ -1,0 +1,15 @@
+[package]
+name = "tvws_mac"
+description = "A TV white-space MAC implementation based on IEEE 802.11af and ECMA-392 standards"
+version = "0.1.0"
+edition = "2018"
+keywords      = ["IEEE 802.11af", "ECMA-392", "TVWS"]
+readme = "hackmd.io/BfJjP6oFRKeWUQIYyTRYtw"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+
+[features]
+ECMA-392 = []
+IEEE-80211-af = []
