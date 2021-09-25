@@ -68,8 +68,8 @@ const FRAME_CTRL_SUBTYPE_RESERVED: u16 = 0x0F00 | FRAME_CTRL_TYPE_CMD; // Channe
 // 0b000x_0000_0000_0000
 const FRAME_CTRL_RETRY: u16 = 0x1000;
 
-
 // 7.1.2.4 Sequence Control
+
 
 // Section 7.1 MAC Frame
 pub struct MacFrame {
