@@ -72,6 +72,7 @@ const ECMA392_FC_RETRY: u16 = 0x1000;
 
 // 7.1.2.4 Sequence Control
 
+
 // Section 7.1 MAC Frame
 pub struct MacFrame {
     header: MacHeader,
@@ -127,4 +128,3 @@ pub enum PayloadType {
     Secure(SecureFramePayload),
     NotSecure(Vec<u8>),
 }
-
