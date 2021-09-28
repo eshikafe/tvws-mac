@@ -1,7 +1,6 @@
 // Copyright (c) TVWS Project
 
-#[allow(unused_variables)]
-#[allow(unused_assignment)]
+#![allow(unused)]
 
 // Frame control field format: b15 ... b0
 //  b0..b1: Protocol version 00

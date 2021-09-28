@@ -3,8 +3,7 @@
 // IEEE 802.11af MAC Frames module
 // Based on IEEE standard 802.11-2012 and 802.11af-2013
 
-#[allow(unused_variables)]
-#[allow(unused_assignment)]
+#![allow(unused)]
 //  See 8.2.4.1 of IEEE 802.11-2012
 //  Frame control fields [b15 ... b0]
 //  b0..b1: Protocol version {0}
