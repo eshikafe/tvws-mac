@@ -92,11 +92,21 @@ pub struct MacHeader {
 //  - Frames are addressed using DevAddr
 //  - Four types of DevAddrs: Private, Generated, Multicast, Broadcast
 pub enum DevAddr {
-    Private(u16),      // 0x0000 - 0x00ff
-    Generated(u16),    // 0x0100 - 0xfeff
-    Unassociated(u16), // 0xff00
-    McstAddr(u16),     // 0xff01 - 0xfffe
-    BcstAddr(u16),     // 0xffff
+    Private,      // 0x0000 - 0x00ff
+    Generated,    // 0x0100 - 0xfeff
+    Unassociated, // 0xff00
+    McstAddr,     // 0xff01 - 0xfffe
+    BcstAddr,     // 0xffff
+}
+
+fn dev_addr_type(val: u16) -> DevAddr {
+    match val {
+        0x0000..=0x00ff => DevAddr::Private,
+        0x0100..=0xfeff => DevAddr::Generated,
+        0xff00 => DevAddr::Unassociated,
+        0xff01..=0xfffe => DevAddr::McstAddr,
+        0xffff => DevAddr::BcstAddr
+    }
 }
 
 pub struct MacFrameBody {
