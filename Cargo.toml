@@ -11,5 +11,5 @@ readme = "hackmd.io/BfJjP6oFRKeWUQIYyTRYtw"
 [dependencies]
 
 [features]
-ECMA-392 = []
-IEEE-80211-af = []
+ecma = []
+ieee = []

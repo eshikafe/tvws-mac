@@ -1,6 +1,5 @@
 // Copyright (c) TVWS Project
 
-
 // Frame control field format: b15 ... b0
 //  b0..b1: Protocol version 00
 //  b2: secure 0 .. 1
@@ -44,7 +43,7 @@ const FRAME_CTRL_SUBTYPE_CTS: u16 = 0x0300 | FRAME_CTRL_TYPE_CTRL;
 const FRAME_CTRL_SUBTYPE_UCA: u16 = 0x0400 | FRAME_CTRL_TYPE_CTRL;
 const FRAME_CTRL_SUBTYPE_UCR: u16 = 0x0E00 | FRAME_CTRL_TYPE_CTRL;
 const FRAME_CTRL_SUBTYPE_RESRVED: u16 = 0x0F00 | FRAME_CTRL_TYPE_CTRL; // 6 - 13, 15
-const FRAME_CTRL_SUBTYPE_APP_SPEC: u16 = 0x0000 | FRAME_CTRL_TYPE_CTRL;
+const FRAME_CTRL_SUBTYPE_APP_SPEC_CMD: u16 = 0x0000 | FRAME_CTRL_TYPE_CTRL;
 
 // Command: Table 26
 const FRAME_CTRL_SUBTYPE_CRP_RESRVN_REQ: u16 = 0x0000 | FRAME_CTRL_TYPE_CMD; // CRP reservation request
@@ -60,14 +59,13 @@ const FRAME_CTRL_SUBTYPE_CH_MEAS_RPRT_ACK: u16 = 0x0900 | FRAME_CTRL_TYPE_CMD; /
 const FRAME_CTRL_SUBTYPE_CH_SWITCH_CMD: u16 = 0x0A00 | FRAME_CTRL_TYPE_CMD; // Channel Switch Command
 const FRAME_CTRL_SUBTYPE_CH_SWITCH_RESP: u16 = 0x0B00 | FRAME_CTRL_TYPE_CMD; // Channel Switch Response
 const FRAME_CTRL_SUBTYPE_SW_SLOT_RESP: u16 = 0x0C00 | FRAME_CTRL_TYPE_CMD; // SW Slot Response
-const FRAME_CTRL_SUBTYPE_APP_SPEC: u16 = 0x0D00 | FRAME_CTRL_TYPE_CMD; // Application Specific
+const FRAME_CTRL_SUBTYPE_APP_SPEC_CTRL: u16 = 0x0D00 | FRAME_CTRL_TYPE_CMD; // Application Specific
 const FRAME_CTRL_SUBTYPE_ASSOC_REQ: u16 = 0x0E00 | FRAME_CTRL_TYPE_CMD; // Association Request
 const FRAME_CTRL_SUBTYPE_RESERVED: u16 = 0x0F00 | FRAME_CTRL_TYPE_CMD; // Channel Switch Response
 
 // 7.1.2.1.6 Retry
 // 0b000x_0000_0000_0000
 const FRAME_CTRL_RETRY: u16 = 0x1000;
-
 
 // 7.1.2.4 Sequence Control
 
@@ -77,12 +75,26 @@ pub struct MacFrame {
     body: Option<MacFrameBody>,
 }
 
+#[derive(Debug)]
 pub struct MacHeader {
     frame_ctrl: u16,
     dest_addr: u16,
     src_addr: u16,
     seq_ctrl: u16, // Order of MSDUs/MCDUs
     access_ctrl: u16,
+}
+
+
+impl MacHeader {
+    pub fn new() -> Self {
+        Self {
+            frame_ctrl: FRAME_CRTL_SECURE | FRAME_CTRL_ACK_POLICY_NO_ACK | FRAME_CTRL_TYPE_BEACON,
+            dest_addr: 127,
+            src_addr: 128,
+            seq_ctrl: 345,
+            access_ctrl: 67,
+        }
+    }
 }
 
 pub struct MacFrameBody {
@@ -100,3 +112,4 @@ pub enum PayloadType {
     Secure(SecureFramePayload),
     NotSecure(Vec<u8>),
 }
+
