@@ -72,7 +72,6 @@ const ECMA392_FC_RETRY: u16 = 0x1000;
 
 // 7.1.2.4 Sequence Control
 
-
 // Section 7.1 MAC Frame
 pub struct MacFrame {
     header: MacHeader,
@@ -82,9 +81,9 @@ pub struct MacFrame {
 #[derive(Debug)]
 pub struct MacHeader {
     frame_ctrl_: u16,
-    dest_addr: u16,  //DevAddr of the frame recipient
+    dest_addr: u16, //DevAddr of the frame recipient
     src_addr: u16,  // DevAddr of the transmitter of the frame
-    seq_ctrl: u16, // Order of MSDUs/MCDUs
+    seq_ctrl: u16,  // Order of MSDUs/MCDUs
     access_ctrl: u16,
 }
 
@@ -94,11 +93,11 @@ pub struct MacHeader {
 //  - Frames are addressed using DevAddr
 //  - Four types of DevAddrs: Private, Generated, Multicast, Broadcast
 pub enum DevAddr {
-    Private(u16),  // 0x0000 - 0x00ff
-    Generated(u16), // 0x0100 - 0xfeff
+    Private(u16),      // 0x0000 - 0x00ff
+    Generated(u16),    // 0x0100 - 0xfeff
     Unassociated(u16), // 0xff00
-    McstAddr(u16), // 0xff01 - 0xfffe
-    BcstAddr(u16), // 0xffff 
+    McstAddr(u16),     // 0xff01 - 0xfffe
+    BcstAddr(u16),     // 0xffff
 }
 
 pub struct MacFrameBody {
