@@ -101,18 +101,6 @@ pub enum DevAddr {
     BcstAddr(u16), // 0xffff 
 }
 
-impl MacHeader {
-    pub fn new() -> Self {
-        Self {
-            frame_ctrl_: ECMA392_FC_SECURE | ECMA392_FC_ACK_POLICY_NO_ACK | ECMA392_FC_TYPE_BEACON,
-            dest_addr: 127,
-            src_addr: 128,
-            seq_ctrl: 345,
-            access_ctrl: 67,
-        }
-    }
-}
-
 pub struct MacFrameBody {
     payload: PayloadType,
     fcs: u32, // Frame Check Sequence
