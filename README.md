@@ -9,6 +9,7 @@ Designed to be compliant with the following TV white-space standards:
 ## Use cases
 - TVWS slave/master device test-bed.
 - Rapid prototyping of a TVWS device.
+- TV White Space chip
 
 ## Software Architecture
 
