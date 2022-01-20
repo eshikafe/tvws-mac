@@ -83,6 +83,6 @@ pub struct MacHeader {
 
 pub struct MacFrame {
     hdr: MacHeader,
-    body: [u8; 7951],
+    data: [u8; 7951],
     fcs: u32,
 }
