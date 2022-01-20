@@ -20,12 +20,12 @@
 
 // See 8.2.4.1.3 (IEEE 802.11-2012)
 // Frame Control Type
-pub const IEEE80211_FC_TYPE_MGT: u16 = 0x0000;
-pub const IEEE80211_FC_TYPE_CTRL: u16 = 0x0004;
-pub const IEEE80211_FC_TYPE_DATA: u16 = 0x0008;
+pub const IEEE80211AF_FC_TYPE_MGT: u16 = 0x0000;
+pub const IEEE80211AF_FC_TYPE_CTRL: u16 = 0x0004;
+pub const IEEE80211AF_FC_TYPE_DATA: u16 = 0x0008;
 
 // Frame Control Management Subtype
-pub const IEEE80211_FC_STYPE_ASSOC_REQ: u16 = 0x0000;
+pub const IEEE80211AF_FC_STYPE_ASSOC_REQ: u16 = 0x0000;
 pub const IEEE80211_FC_STYPE_ASSOC_RESP: u16 = 0x0010;
 pub const IEEE80211_FC_STYPE_REASSOC_REQ: u16 = 0x0020;
 pub const IEEE80211_FC_STYPE_REASSOC_RESP: u16 = 0x0030;
@@ -72,7 +72,7 @@ pub const IEEE80211_FC_STYPE_QOS_CFACKPOLL: u16 = 0x00F0;
 pub struct MacHeader {
     frame_ctrl: u16,
     duration_id: u16,
-    addr1: [u8; 6],    // MAC address EUI-48
+    addr1: [u8; 6], // MAC address EUI-48
     addr2: [u8; 6],
     addr3: [u8; 6],
     seq_ctrl: u16,
