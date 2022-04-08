@@ -1,4 +1,4 @@
-# TVWS-MAC
+# tvws-mac-rs
 A TV White-space MAC layer implementation in Rust. It is implemented as a Linux kernel module.
 
 ## Compliance
