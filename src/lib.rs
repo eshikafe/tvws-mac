@@ -1,11 +1,11 @@
-#[cfg(feature = "ecma")]
-pub mod ecma392;
+#[cfg(feature = "ecma392")]
+pub mod ecma;
 
-#[cfg(feature = "ieee")]
-pub mod ieee80211af;
+#[cfg(feature = "ieee80211af")]
+pub mod ieee;
 
-#[cfg(feature = "ecma")]
-pub use ecma392::*;
+#[cfg(feature = "ecma392")]
+pub use ecma::*;
 
-#[cfg(feature = "ieee")]
-pub use ieee80211af::*;
+#[cfg(feature = "ieee80211af")]
+pub use ieee::*;
