@@ -1,4 +1,4 @@
-# Implementation Document
+# Documentation for both ECMA 392 and IEEE 802.11AF Implementation
 
 ## MAC Layer
 
