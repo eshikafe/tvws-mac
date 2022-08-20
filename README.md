@@ -7,9 +7,9 @@ Designed to be compliant with the following TV white-space standards:
 - IEEE 802.11af.
 
 ## Use cases
-- TVWS slave/master device test-bed.
+- TVWS slave/master device.
 - Rapid prototyping of a TVWS device.
-- TV White Space chip
+- TV white space chip (SoC)
 
 ## Software Architecture
 
