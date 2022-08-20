@@ -99,8 +99,8 @@ pub enum DevAddr {
     BcstAddr,     // 0xffff
 }
 
-fn dev_addr_type(val: u16) -> DevAddr {
-    match val {
+fn device_addr_type(addr: u16) -> DevAddr {
+    match addr {
         0x0000..=0x00ff => DevAddr::Private,
         0x0100..=0xfeff => DevAddr::Generated,
         0xff00 => DevAddr::Unassociated,
@@ -116,7 +116,7 @@ pub struct MacFrameBody {
 
 pub struct SecureFramePayload {
     tkid: [u8; 3], // Temporary Identifier
-    secure_payload: Vec<u8>,
+    payload: Vec<u8>,
     mic: u64, // Message Integrity Code
 }
 
