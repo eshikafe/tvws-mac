@@ -13,4 +13,4 @@ Designed to be compliant with the following TV white-space standards:
 
 ## Software Architecture
 
-![](https://i.imgur.com/rvCbRjS.png)
+![](doc/tvws-mac-architecture.PNG)
