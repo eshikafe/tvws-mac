@@ -1,5 +1,5 @@
-# Documentation
-`ECMA 392` and `IEEE 802.11AF` implementation document.
+## ECMA-392
+MAC implementation document.
 
 ## MAC Layer
 
@@ -23,6 +23,3 @@ struct MacHeader {
     access_ctrl: u16,
 }
 ```
-
-![image](https://user-images.githubusercontent.com/3691485/185742135-b0f103a5-024d-4242-a539-b1e90ea78b2d.png)
-
